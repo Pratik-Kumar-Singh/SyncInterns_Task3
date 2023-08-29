@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav id="navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Account</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Premium</a></li>
+        </ul>
+    </nav>
+    <div id="home">
+        <h1 id="title">Tu Hai Ki Nahi</h1>
+        <p id="artist">Ankit Tiwari</p>
+        <div class="img">
+            <img id="image" src="song1.jpg">
+        </div>
+        <audio src="song1.mp3"></audio>
+        <div class="music">
+            <i class="fa-solid fa-backward-fast" id="previous"></i>
+            <i class="fa-solid fa-play main_button" id="play"></i>
+            <i class="fa-solid fa-forward-fast" id="next"></i>
+        </div>
+    </div>
+    <script>
+        const music=document.querySelector("audio");
+        const play=document.getElementById("play");
+        const img= document.getElementById("image");
+        const title=document.getElementById("title");
+        const artist=document.getElementById("artist");
+        const prev=document.getElementById("prev");
+        const next=document.getElementById("next");
+
+        const songs=[
+            {
+                name:"song1",
+                artist:"Ankit Tiwari",
+                title:"Tu Hai Ki Nahi",
+            },
+            {
+                name:"song2",
+                artist:"Pritam, KK",
+                title:"Dil Ibaadat",
+            },
+            {
+                name:"song3",
+                artist:"Arijit Singh",
+                title:"Ijazat",
+            },
+        ];
+
+
+        let isPlaying=false;
+        const playMusic = () => {
+            isPlaying=true;
+            music.play();
+            play.classList.replace("fa-play","fa-pause");
+            img.classList.add("anime");
+        };
+        const pauseMusic = () => {
+            isPlaying=false;
+            music.pause();
+            play.classList.replace("fa-pause","fa-play");
+            img.classList.remove("anime");
+        };
+        play.addEventListener("click",() => 
+        {
+            if(isPlaying){
+                pauseMusic();
+            }
+            else{
+                playMusic();
+            }
+        })
+
+        const loadSong = (songs) => {
+            artist.textContent = songs.artist;
+            title.textContent = songs.title;
+            music.src = songs.name+".mp3";
+            img.src = songs.name+".jpg";
+        };
+    
+        songIndex = 0;
+        const nextSong = () => {
+            songIndex++;
+            loadSong(songs[songIndex]);
+            playMusic();
+        };
+        next.addEventListener("click",nextSong);
+
+    </script>
+</body>
+</html>

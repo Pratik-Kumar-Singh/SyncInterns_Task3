@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 1.3rem;
+    font-family: 'Lora', serif;
+}
+#navbar{
+    background-color: rgb(49, 83, 49);
+    color: black;
+}
+#navbar ul{
+    display: flex;
+}
+#navbar ul li{
+    list-style: none;
+}
+#navbar ul li a{
+    text-decoration: none;
+    list-style: none;
+    padding:38px 80px;
+    color: black;
+}
+#navbar ul li a:hover{
+    color: black;
+    background-color:white;
+    border-radius: 12px;
+}
+#home{
+    border: 2px solid green;
+    margin:100px 500px;
+    width:18%;
+    height:98%;
+    padding:54px 74px;
+    box-shadow: 8px 9px rgb(150, 196, 150);
+    border-radius: 8px;
+}
+#home h1{
+    align-items: center;
+    justify-content: center;
+    margin:4px 40px;
+}
+#home p{
+    margin:2px 56px;
+}
+#home img{
+    align-items: center;
+    margin:7px;
+    justify-content: center;
+    width:100%;
+    height:100%;
+    margin:22px 12px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.music{
+    width:0.8rem;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+}
+.music .fa-solid{
+    cursor: pointer;
+    font-size: 2rem ;
+    filter: drop-shadow(0 2.2rem 3rem 1.5rem black);
+}
+.music .fa-solid:hover{
+    color:gray;
+}
+.music{
+    margin:12px;
+    width:12rem;
+}
+.anime{
+    animation:rotatePlayer 3s linear infinite;
+}
+@keyframes rotatePlayer{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
